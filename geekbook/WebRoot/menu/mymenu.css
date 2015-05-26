@@ -1,0 +1,94 @@
+.menuBar {
+border:1px solid rgb(211,211,211);
+width:168px;
+
+
+font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+}
+.barTitle {
+height:55px;
+background:#efefef url(../images/left_bg.jpg) repeat top center;
+background-color:;
+font-weight:bold;
+}
+
+.barTitleText {
+	float:left;
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+	
+}
+
+.menuTitleText {
+margin-top:3px;
+margin-left:10px;
+float:left;
+font-weight:bold;
+}
+
+
+.menuTitle {
+background:#efefef url(../images/left_bg2.jpg) repeat top center;
+background-color:;
+width:168px;
+height:25px;
+margin-top:1px;
+border-right-color:;
+border-bottom-color:;
+border-right-width:1px;
+border-bottom-width:1px;
+border-right-style:solid;
+border-bottom-style:solid;
+cursor:pointer;
+font:"Arial"
+
+}
+.menuTitleIcon {
+	margin-top:3px;
+	float:left;
+}
+
+.menuContent {
+/*	height:150px;*/
+	
+	display:none;
+	overflow:auto;
+	text-align:center;
+	font:"Arial";
+	font-weight:bold;
+}
+.barBottom {
+	background:#efefef url(../images/left_bg2.jpg) repeat top center;
+background-color:;
+width:168px;
+height:15px;
+}
+a {
+	text-decoration:none;
+		
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+}
+a:link {
+	TEXT-DECORATION: none
+}
+a:visited {
+	TEXT-DECORATION: none
+}
+a:hover {
+	TEXT-DECORATION: none;
+	
+}
+a:active {
+	TEXT-DECORATION: none;/*underline*/
+}
+
+.menuItem {
+	background:#efefef url(../images/left_bg3.jpg) repeat top center;
+	height:25px;
+	margin-bottom:1px;
+	border: 1px solid rgb(68,141,174);
+	background-color:;
+	cursor:pointer;
+	
+}
