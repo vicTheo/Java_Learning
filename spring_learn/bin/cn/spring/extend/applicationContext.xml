@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           
+           <!-- abstract="true" 则spring容器不再为bean创建对象 -->
+           <bean id="person" class="cn.spring.extend.Person" abstract="true">
+           <property name="pname"><value>小李</value></property>
+           </bean>
+           <!-- parent属性让子类父类属性的值 -->
+          <!--  <bean id="student" class="cn.spring.extend.Student" parent="person"></bean> -->
+          
+          <!-- 覆盖父类的属性的值 -->
+          <bean id="student" class="cn.spring.extend.Student">
+          <property name="pname" value="小王"></property>
+          </bean>
+           </beans>

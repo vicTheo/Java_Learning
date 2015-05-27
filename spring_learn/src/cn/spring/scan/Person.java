@@ -1,11 +1,13 @@
-package cn.spring.annotation;
+package cn.spring.scan;
+
+import org.springframework.stereotype.Component;
 
 
-@Name("人")
+@Component
 public class Person {
-	@Desription("唱歌")
+	
 public void sing(){}
-	@Desription("跳舞")
+	
 	public void dance(){
 		System.out.println("dance--hello");
 	}
