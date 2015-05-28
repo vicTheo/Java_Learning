@@ -1,0 +1,18 @@
+package cn.spring.jdbc;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class RowMapperImpl implements  RowMapper{
+
+	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Person person=new Person();
+		person.setPid(rs.getInt("cid"));
+		person.setPname(rs.getString("cname"));
+		person.setDescription(rs.getString("description"));
+		return person;
+	}
+
+}
