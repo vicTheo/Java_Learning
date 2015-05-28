@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+          
+     <bean id="persondao" class="cn.spring.spring_proxy.aop.exception.bean.PersonDaoImpl"></bean>     
+     <bean id="personservice" class="cn.spring.spring_proxy.aop.exception.service.PersonServiceImpl">
+     <property name="personDao">
+     <ref bean="persondao"/>
+     </property>
+     </bean>
+     <bean id="personaction" class="cn.spring.spring_proxy.aop.exception.bean.PersonAction">
+     <property name="personService">
+     <ref bean="personservice"/>
+     </property>
+     </bean>
+     <bean id="myexeception" class="cn.spring.spring_proxy.aop.exception.MyExeception"></bean>
+     <aop:config>
+     <aop:pointcut expression="execution(* cn.spring.spring_proxy.aop.exception.service.*.*(..))" id="perform"/>
+     <aop:aspect ref="myexeception">
+     <aop:after-throwing method="throwing" pointcut-ref="perform" throwing="exec"/>
+     </aop:aspect>
+     </aop:config>
+ </beans>

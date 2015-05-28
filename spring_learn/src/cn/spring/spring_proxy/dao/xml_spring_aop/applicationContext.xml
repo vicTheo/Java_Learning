@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+           
+    <bean id="personDao" class="cn.spring.spring_proxy.dao.xml_spring_aop.PersonDaoImpl"></bean>          
+    <bean id="transaction" class="cn.spring.spring_proxy.dao.xml_spring_aop.Transaction"></bean>
+    <aop:config>
+    <aop:pointcut expression="execution(* cn.spring.spring_proxy.dao.xml_spring_aop.PersonDaoImpl.*(..))" id="perform"/>
+    <aop:aspect ref="transaction">
+    <aop:before method="beginTransaction" pointcut-ref="perform" />
+    <aop:after-returning method="commit" pointcut-ref="perform" returning="val"/>
+    <aop:after method="finallyMethod" pointcut-ref="perform"/>
+    <aop:after-throwing method="exceptionMethod" throwing="exec" pointcut-ref="perform"/>
+    <aop:around method="aroundMethod" pointcut-ref="perform"/>
+    </aop:aspect>
+    </aop:config>
+ </beans>

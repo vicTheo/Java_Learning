@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+          
+           <bean id="logger" class="cn.spring.spring_proxy.aop.xml.salary.Logger"></bean>
+           <bean id="security" class="cn.spring.spring_proxy.aop.xml.salary.Security"></bean>
+           <bean id="privilege" class="cn.spring.spring_proxy.aop.xml.salary.Privilege"></bean>
+           <bean id="salaryManager" class="cn.spring.spring_proxy.aop.xml.salary.SalaryManagerImpl"></bean>
+           <aop:config>
+           <aop:pointcut expression="execution(* cn.spring.spring_proxy.aop.xml.salary.SalaryManagerImpl.*(..) )" id="perform"/>
+           <aop:aspect ref="logger">
+           <aop:before method="logging" pointcut-ref="perform"/>
+           </aop:aspect>
+           <aop:aspect ref="security">
+           <aop:before method="secure" pointcut-ref="perform"/>
+           </aop:aspect>
+           <aop:aspect ref="privilege">
+           <aop:before method="privilege" pointcut-ref="perform"/>
+           </aop:aspect>
+           </aop:config>
+  
+ </beans>
