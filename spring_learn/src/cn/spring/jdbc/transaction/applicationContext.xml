@@ -37,7 +37,7 @@
    </tx:advice>
    <!-- spring容器做的事情 -->
     <aop:config>
-   <aop:pointcut expression="execution(* cn.spring.jdbc.transaction.PersonServiceImpl.*(..))" id="perform"/>
+   <aop:pointcut expression="execution(* cn.spring.jdbc..PersonServiceImpl.*(..))" id="perform"/>
    <aop:advisor advice-ref="tx" pointcut-ref="perform"/>
    </aop:config>
    <!-- 程序员 -->   
@@ -48,4 +48,13 @@
    <bean id="personService" class="cn.spring.jdbc.transaction.PersonServiceImpl">
    <property name="persondao" ref="personDao"></property>
    </bean>       
+   
+   <bean id="personDao2" class="cn.spring.jdbc.PersonDaoImpl">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <bean id="personService2" class="cn.spring.jdbc.PersonServiceImpl">
+   <property name="personDao">
+   <ref bean="personDao2"/>
+   </property>
+   </bean>
            </beans>
