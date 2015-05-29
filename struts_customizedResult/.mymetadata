@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="struts_customizedResult"
+  id="myeclipse.1432880502564"
+  context-root="/struts_customizedResult"
+  j2ee-spec="6.0"
+  archive="struts_customizedResult.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
