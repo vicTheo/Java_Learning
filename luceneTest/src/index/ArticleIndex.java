@@ -22,7 +22,16 @@ import utils.DocumentUtiils;
 import utils.LuceneUtils;
 
 public class ArticleIndex {
-
+	/**
+	 * 1、索引库的增、删、改是由indexWriter来操作的
+	 * 2、同一个时刻内，同一个索引库，只能允许一个indexWriter操作
+	 * 3、当IndexWriter创建完成以后，indexwriter所指向的索引库就被占领了，只有当indexWriter.close时，才能释放锁的资源
+	 * 4、当一个新的indexWriter想拥有索引库时，原来的indexWriter必须释放锁
+	 * 5、只要索引库中存在write.lock文件，说明上锁了
+	 * 6、indexWriter.close有两层含义：
+	 *     *  关闭IO资源
+	 *     *  释放锁
+     */
 	@Test
 	public void testCreateIndex() throws Exception{
 		Article article=new Article();
