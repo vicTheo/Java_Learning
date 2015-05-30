@@ -8,6 +8,7 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
+import org.wltea.analyzer.lucene.IKAnalyzer;
 
 public class LuceneUtils {
    public static Directory directory;
@@ -15,7 +16,7 @@ public class LuceneUtils {
    static{
 	   try {
 		directory=FSDirectory.open(new File("./indexDir"));
-		analyzer=new StandardAnalyzer(Version.LUCENE_30);
+		analyzer=new IKAnalyzer();
 	} catch (IOException e) {
 		
 		e.printStackTrace();
