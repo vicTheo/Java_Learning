@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+	
+	<struts>
+	<package name="oa" namespace="/oa" extends="struts-default">
+	<result-types>
+	<result-type name="oaResult" class="result.OaResult"></result-type>
+	</result-types>
+	
+	<action name="ChartAction_*" method="{1}" class="action.ChartAction">
+	       <result type="oaResult">
+	             <param name="oa">2345</param>
+	       </result>
+	</action>
+	</package>
+	<package name="chart" namespace="/chart" extends="jfreechart-default">
+	<action name="ChartAction_*" method="{1}" class="action.ChartAction">
+	<result type="chart">
+	
+	<param name="width">500</param>
+	<param name="height">500</param>
+	</result>
+	</action>
+	</package>
+	   
+	</struts>

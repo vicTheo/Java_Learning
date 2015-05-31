@@ -13,6 +13,8 @@ import compass.bean.Article;
 public class compassTest {
 	/*测试增 删 查 改
 	 * 
+	 * session.create(bean)无论id是否一样都会往索引库增加记录，id递增
+	 * session。save(bean)如果id一样则会覆盖
 	 */
     @Test
      //增
@@ -25,7 +27,7 @@ public class compassTest {
     	article.setId(2L);
     	article.setTitle("lucene");
     	article.setContent("lucene可以做很好的搜索引擎");
-    	compassSession.save(article);
+    	compassSession.create(article);
     	compassSession.close();
     	
     }
