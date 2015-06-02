@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+   <constant name="struts.action.extension" value="action"/>
+   <constant name="struts.devMode" value="true"/>
+   <constant name="struts.ui.theme" value="simple" />
+   <package name="article" namespace="/" extends="struts-default">
+   		<action name="articleAction_*" class="BBSAction.ArticleAction" method="{1}">
+   			<result name="listTop">/jsp/article/listTopic.jsp</result>
+   			<result type="redirectAction" name="toList">articleAction_listArticle</result>
+   			<result name="showResult">/jsp/search/showResult.jsp</result>
+   		</action>
+   </package>
+</struts>	
