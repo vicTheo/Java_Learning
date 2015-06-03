@@ -18,8 +18,10 @@
 	<key><column name="uid"></column></key>
 	<many-to-many class="OAproject.Domain.Post" column="pid"></many-to-many>
 	</set>
-	
 	<many-to-one name="department" class="OAproject.Domain.Department" column="did"></many-to-one>
-	
+	<set name="menuitems" table="user_menuitem">
+	<key><column name="uid"></column></key>
+	<many-to-many class="OAproject.Domain.Menuitem" column="mid"></many-to-many>
+	</set>
 	</class>
 </hibernate-mapping>

@@ -10,8 +10,15 @@ public class User implements Serializable{
    private String email;
    private String phone;
    private String sex;
+   private Set<Menuitem> menuitems;
    
-   public String getSex() {
+   public Set<Menuitem> getMenuitems() {
+	return menuitems;
+}
+public void setMenuitems(Set<Menuitem> menuitems) {
+	this.menuitems = menuitems;
+}
+public String getSex() {
 	return sex;
 }
 public void setSex(String sex) {

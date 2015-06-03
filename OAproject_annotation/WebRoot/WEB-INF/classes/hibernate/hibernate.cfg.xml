@@ -24,6 +24,7 @@
 	<mapping resource="OAproject/Domain/Department.hbm.xml" />
 	<mapping resource="OAproject/Domain/Post.hbm.xml" />
 	<mapping resource="OAproject/Domain/User.hbm.xml" />
+	<mapping resource="OAproject/Domain/Menuitem.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>
