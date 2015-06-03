@@ -11,9 +11,10 @@
 
 </action>
 </package>
-<package name="ajaxValidate" namespace="/" extends="ajax">
-<action name="userAjaxAction_*" method="{1}" class="userAction">
-<result type="ajaxValidation"></result>
+
+<package name="userjson" namespace="/" extends="json-default">
+<action name="userJsonAction_*" method="{1}" class="userAction">
+<result type="json"></result>
 
 </action>
 </package>

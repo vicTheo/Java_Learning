@@ -31,8 +31,13 @@ public class UserAction extends BaseAction<User> {
     private PostService postService;
     private Long did;
     private Long[] pids;
+    private String message;
     
-    public Long getDid() {
+    public String getMessage() {
+		return message;
+	}
+
+	public Long getDid() {
 		return did;
 	}
 
@@ -95,14 +100,15 @@ public class UserAction extends BaseAction<User> {
     	this.userService.saveEntry(user);
     	return action2action;
     }
-    public String ajax(){
+    public String checkUserName(){
     	User user=(User) this.userService.getUserByName(this.getModel().getUsername());
     	
     	if(user==null){
-    		ActionContext.getContext().getValueStack().push("该用户名可以使用");
-    		
+    		//ActionContext.getContext().getValueStack().push("该用户名可以使用");
+    		this.message="该用户名可以使用";
     	}else{
-    		ActionContext.getContext().getValueStack().push("该用户名不可用");
+    		//ActionContext.getContext().getValueStack().push("该用户名不可用");
+    	   this.message="该用户名不可用";
     	}
     	return "success";
     }
