@@ -59,31 +59,32 @@ public class UserAction extends BaseAction<User> {
     
     public String addUI(){
     	/**
-		 * 1¡¢°Ñ²¿ÃÅ±íµÄËùÓĞµÄÊı¾İ²éÑ¯³öÀ´
-		 * 2¡¢°Ñ¸ÚÎ»±íµÄÊı¾İ²éÑ¯³öÀ´
-		 * 3¡¢Ìø×ªµ½Ôö¼ÓÒ³Ãæ
+		 * 1ã€æŠŠéƒ¨é—¨è¡¨çš„æ‰€æœ‰çš„æ•°æ®æŸ¥è¯¢å‡ºæ¥
+		 * 2ã€æŠŠå²—ä½è¡¨çš„æ•°æ®æŸ¥è¯¢å‡ºæ¥
+		 * 3ã€è·³è½¬åˆ°å¢åŠ é¡µé¢
 		 */
     	Collection<Department> depList=this.departmentSevice.getAllEntry();
+    	ActionContext.getContext().put("departmentList", depList);
     	Collection<Post> postList=this.postService.getAllEntry();
     	System.out.println(postList.size());
     	ActionContext.getContext().put("postList", postList);
-    	ActionContext.getContext().put("deptList", depList);
+    	
     	return addUI;
     }
     
     public String add(){
     	/**
-		 * ÈçºÎ»ñÈ¡Ò³ÃæÖĞµÄÊı¾İ
-		 *    *  Èç¹ûÒ³ÃæÖĞµÄÊı¾İÀ´Ô´ÓÚÒ»ÕÅ±í£¬Ö±½ÓÓÃÄ£ĞÍÇı¶¯»ñÈ¡¾Í¿ÉÒÔÁË
-		 *    *  Èç¹ûÒ³ÃæÖĞµÄÊı¾İÀ´Ô´ÓÚ¶àÕÅ±í£¬Ôò¿ÉÒÔ²ÉÓÃÄ£ĞÍÇı¶¯½áºÏÊôĞÔÇı¶¯µÄ·½Ê½
+		 * å¦‚ä½•è·å–é¡µé¢ä¸­çš„æ•°æ®
+		 *    *  å¦‚æœé¡µé¢ä¸­çš„æ•°æ®æ¥æºäºä¸€å¼ è¡¨ï¼Œç›´æ¥ç”¨æ¨¡å‹é©±åŠ¨è·å–å°±å¯ä»¥äº†
+		 *    *  å¦‚æœé¡µé¢ä¸­çš„æ•°æ®æ¥æºäºå¤šå¼ è¡¨ï¼Œåˆ™å¯ä»¥é‡‡ç”¨æ¨¡å‹é©±åŠ¨ç»“åˆå±æ€§é©±åŠ¨çš„æ–¹å¼
 		 */
 		/**
-		 * 1¡¢´´½¨Ò»¸öuser¶ÔÏó
-		 * 2¡¢°ÑÄ£ĞÍÇı¶¯µÄÖµ¸³Öµ¸øuser¶ÔÏó
-		 * 3¡¢¸ù¾İ didÌáÈ¡³ö¸Ã²¿ÃÅ
-		 * 4¡¢¸ù¾İpidsÌáÈ¡³ö¸ÚÎ»
-		 * 5¡¢½¨Á¢user¶ÔÏóºÍ²¿ÃÅºÍ¸ÚÎ»Ö®¼äµÄ¹ØÏµ
-		 * 6¡¢Ö´ĞĞsave²Ù×÷
+		 * 1ã€åˆ›å»ºä¸€ä¸ªuserå¯¹è±¡
+		 * 2ã€æŠŠæ¨¡å‹é©±åŠ¨çš„å€¼èµ‹å€¼ç»™userå¯¹è±¡
+		 * 3ã€æ ¹æ® didæå–å‡ºè¯¥éƒ¨é—¨
+		 * 4ã€æ ¹æ®pidsæå–å‡ºå²—ä½
+		 * 5ã€å»ºç«‹userå¯¹è±¡å’Œéƒ¨é—¨å’Œå²—ä½ä¹‹é—´çš„å…³ç³»
+		 * 6ã€æ‰§è¡Œsaveæ“ä½œ
 		 */
     	User user=new User();
     	BeanUtils.copyProperties(this.getModel(), user);
@@ -91,6 +92,18 @@ public class UserAction extends BaseAction<User> {
     	user.setDepartment(department);
     	Set<Post> postList=(Set<Post>) this.postService.getAllPostsByIds(pids);
     	user.setPosts(postList);
+    	this.userService.saveEntry(user);
     	return action2action;
+    }
+    public String ajax(){
+    	User user=(User) this.userService.getUserByName(this.getModel().getUsername());
+    	
+    	if(user==null){
+    		ActionContext.getContext().getValueStack().push("è¯¥ç”¨æˆ·åå¯ä»¥ä½¿ç”¨");
+    		
+    	}else{
+    		ActionContext.getContext().getValueStack().push("è¯¥ç”¨æˆ·åä¸å¯ç”¨");
+    	}
+    	return "success";
     }
 }

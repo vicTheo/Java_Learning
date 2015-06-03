@@ -11,4 +11,10 @@
 
 </action>
 </package>
+<package name="ajaxValidate" namespace="/" extends="ajax">
+<action name="userAjaxAction_*" method="{1}" class="userAction">
+<result type="ajaxValidation"></result>
+
+</action>
+</package>
 </struts>

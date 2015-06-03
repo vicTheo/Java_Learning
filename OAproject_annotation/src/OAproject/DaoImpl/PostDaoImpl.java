@@ -15,7 +15,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDao<Post>{
 
 	public Collection<Post> getAllPostsByIds(Long[] pids) {
 		StringBuilder sb=new StringBuilder();
-		sb.append("from Post where pid in ");
+		sb.append("from Post where pid in (");
 		
 		for(int i=0;i<pids.length;i++){
 			if(i<pids.length-1){
@@ -24,6 +24,7 @@ public class PostDaoImpl extends BaseDaoImpl<Post> implements PostDao<Post>{
 				sb.append(pids[i]);
 			}
 		}
+		sb.append(")");
 		List<Post> postList=this.hibernateTemplate.find(sb.toString());
 		return new HashSet<Post>(postList);
 	}

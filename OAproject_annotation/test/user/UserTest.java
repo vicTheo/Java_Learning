@@ -4,12 +4,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.opensymphony.xwork2.ActionContext;
-
 import OAproject.Domain.Department;
-import OAproject.Domain.Post;
 import OAproject.Service.DepartmentService;
-import OAproject.Service.PostService;
 import base.BaseTest;
 
 public class UserTest extends BaseTest{

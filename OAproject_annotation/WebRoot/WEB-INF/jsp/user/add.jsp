@@ -36,13 +36,13 @@
                     		listValue 显示的文本内容
                     		listKey   option的属性value的值
                     	 -->
-                    	
-                        <td><s:select list="#depList" name="did" listKey="#Department.did" listValue="#Department.dname" headerKey="" headerValue="请选择部门" name="did" cssClass="SelectStyle"></s:select>
+                    	<td>
+                        <s:select list="#departmentList" name="did" listKey="did" listValue="dname" headerKey="" headerValue="请选择部门" csssClass="SelectStyle"></s:select>
                         </td>
                     </tr>
                     <tr><td>用户名</td>
                         <td><s:textfield name="username" cssClass="InputStyle"></s:textfield>
-							（登录名要唯一）
+							<label id="message"></label>
 						</td>
                     </tr>
 					<tr><td>性别</td>
@@ -70,7 +70,7 @@
                     <tr>
 						<td width="100">岗位</td>
 						
-                        <td><s:select list="#postList" name="pids" listKey="#Post.pid" listValue="#Post.pname" cssClass="SelectStyle"  multiple="true" size="10"></s:select>
+                        <td><s:select list="#postList" name="pids" listKey="pid" listValue="pname" cssClass="SelectStyle"  multiple="true" size="10"></s:select>
                             按住Ctrl键可以多选或取消选择
                         </td>
                     </tr>

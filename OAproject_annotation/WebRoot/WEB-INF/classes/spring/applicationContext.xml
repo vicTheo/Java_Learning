@@ -14,8 +14,6 @@
                            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
         <context:component-scan base-package="OAproject"></context:component-scan>
        <import resource="applicationContext-db.xml"/>
-       <import resource="applicationContext-department.xml"/>
-       <import resource="applicationContext-post.xml"/>
-       <import resource="applicationContext-user.xml"/>
+       
       
 </beans>
