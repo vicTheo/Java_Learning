@@ -2,6 +2,7 @@ package Action;
 
 import java.util.Collection;
 
+import org.apache.struts2.json.annotations.JSON;
 import org.springframework.beans.BeanUtils;
 
 import util.DeleteMode;
@@ -14,6 +15,7 @@ import Service.DepartmentService;
 public class DepartmentAction extends BaseAction<Department>{
    private DepartmentService departmentService;
    
+   @JSON(serialize=false)
 public DepartmentService getDepartmentService() {
 	return departmentService;
 }
@@ -25,8 +27,12 @@ public void setDepartmentService(DepartmentService departmentService) {
 public String saveDepartment(){
    return null;
 }
+@JSON(serialize=false)
 public String getAllDepartment(){
+	try{
 	Collection<Department> departmentList = this.departmentService.getAllDepartment();
+	
+	
 	//把departmentList放入到值栈中
 	/**
 	 * 值栈
@@ -105,8 +111,10 @@ public String getAllDepartment(){
 //	maps.put("list1", departmentList1);
 //	maps.put("list2", departmentList2);
 //	ActionContext.getContext().put("maps", maps);
-	
-	return listAction;
+	}catch(Exception e){
+		this.setExceptionMessage(ActionContext.getContext().getValueStack().peek().toString());
+	}
+	return "success";
 }
 
 

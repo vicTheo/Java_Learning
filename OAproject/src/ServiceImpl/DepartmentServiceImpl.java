@@ -41,6 +41,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 
 	public Collection<Department> getAllDepartment() {
+		int i= 1/0;
 		// TODO Auto-generated method stub
 		Collection<Department> coll=this.departmentDao.getAllDepartment();
 		return coll;

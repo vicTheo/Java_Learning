@@ -7,8 +7,17 @@ import com.opensymphony.xwork2.ModelDriven;
 public class BaseAction<T> implements ModelDriven<T>{
     private Class classt;
     private T t;
+    private String exceptionMessage;
     
-    public BaseAction(){
+    public String getExceptionMessage() {
+		return exceptionMessage;
+	}
+
+	public void setExceptionMessage(String exceptionMessage) {
+		this.exceptionMessage = exceptionMessage;
+	}
+
+	public BaseAction(){
     	ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
     	this.classt=(Class) type.getActualTypeArguments()[0];
     	

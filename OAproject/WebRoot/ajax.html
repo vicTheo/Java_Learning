@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ajax.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+   <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+   <script>
+   	$.post("ajaxAction_getAllDepartment.action",null,function(data){
+		alert(data.exceptionMessage);
+	});
+	
+   </script>
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

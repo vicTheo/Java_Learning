@@ -38,5 +38,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2/struts2-core-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2/struts2-spring-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2/xwork-core-2.1.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-json-plugin-2.1.8.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-junit-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

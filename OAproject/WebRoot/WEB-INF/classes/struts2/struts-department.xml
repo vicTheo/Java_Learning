@@ -12,4 +12,11 @@
 
 </action>
 </package>
+<package name="ajax" namespace="/" extends="json-default">
+<action name="ajaxAction_*" method="{1}" class="departmentAction">
+<result type="json">
+<param name="ignoreHierarchy">false</param>
+</result>
+</action>
+</package>
 </struts>

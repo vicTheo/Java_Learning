@@ -26,14 +26,20 @@
        <tx:method name="save*" read-only="false"/>
        <tx:method name="update*" read-only="false"/>
        <tx:method name="delete*" read-only="false"/>
-       <tx:method name="get*" read-only="false"/>
+       <tx:method name="get*" read-only="true"/>
        </tx:attributes>
        </tx:advice>
        <aop:config >
        <aop:pointcut expression="execution(* ServiceImpl.*.*(..))" id="perform"/>
+       <!-- 事务通知 -->
        <aop:advisor advice-ref="tx" pointcut-ref="perform"/>
-       </aop:config>
        
+       <!-- 异常通知 -->
+       <aop:aspect ref="exception">
+       <aop:after-throwing method="getExceptionMessage" pointcut-ref="perform" throwing="ex"/>
+       </aop:aspect>
+       </aop:config>
+       <bean id="exception" class="Exception.OAException"></bean>
        <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
        <property name="sessionFactory" ref="sessionFactory"></property>
        </bean>
