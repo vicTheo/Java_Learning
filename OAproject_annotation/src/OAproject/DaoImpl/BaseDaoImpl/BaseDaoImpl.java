@@ -7,8 +7,10 @@ import java.util.Collection;
 import javax.annotation.Resource;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import OAproject.Dao.BaseDao.BaseDao;
+
 
 public class BaseDaoImpl<T> implements BaseDao<T>{
    

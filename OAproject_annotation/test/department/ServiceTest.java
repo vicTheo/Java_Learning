@@ -15,8 +15,7 @@ public class ServiceTest extends BaseTest{
 		Department department=new Department();
 		department.setDname("ddgdfgdfg");
 		DepartmentService ds=(DepartmentService) context.getBean("departmentService");
-	    ds.saveDepartment(department);
-	    //ds.deleteDepById(1L,DeleteMode.DEL);
+	    ds.saveEntry(department);
 	}
 
 }

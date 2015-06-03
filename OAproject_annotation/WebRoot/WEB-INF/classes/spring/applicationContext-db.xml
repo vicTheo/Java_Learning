@@ -14,7 +14,7 @@
                            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
   
        
-        <context:component-scan base-package="OAproject"></context:component-scan>
+       
         <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
        <property name="configLocation" value="classpath:hibernate/hibernate.cfg.xml"></property>
        </bean>

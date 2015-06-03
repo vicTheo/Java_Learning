@@ -14,7 +14,6 @@ import com.opensymphony.xwork2.ActionContext;
 import OAproject.Action.Base.BaseAction;
 import OAproject.Domain.Department;
 import OAproject.Service.DepartmentService;
-import OAproject.util.DeleteMode;
 
 @Controller("departmentAction")
 @Scope("prototype")
@@ -24,7 +23,7 @@ public class DepartmentAction extends BaseAction<Department>{
    
 
 public String getAllDepartment(){
-	Collection<Department> departmentList = this.departmentService.getAllDepartment();
+	Collection<Department> departmentList = this.departmentService.getAllEntry();
 	//把departmentList放入到值栈中
 	/**
 	 * 值栈
@@ -102,14 +101,14 @@ public String getAllDepartment(){
 //	Map<String, List<Department>> maps = new HashMap<String, List<Department>>();
 //	maps.put("list1", departmentList1);
 //	maps.put("list2", departmentList2);
-//	ActionContext.getContext().put("maps", maps);
+  //ActionContext.getContext().put("maps", maps);
 	
 	return listAction;
 }
 
 
 public String deleteDepById(){
-	this.departmentService.deleteDepById(this.getModel().getDid(),DeleteMode.DEL);
+	this.departmentService.deleteEntryById(this.getModel().getDid());
 	return action2action;
 }
 
@@ -119,13 +118,13 @@ public String addUI(){
 }
 public String updateUI() {
 	//根据传来的id从数据库或session中得到
-	Department department=this.departmentService.getDepById(this.getModel().getDid());
+	Department department=(Department) this.departmentService.getEntryById(this.getModel().getDid());
 	
 	//将对象放入对象栈栈顶  页面可直接通过 name属性回显
 	ActionContext.getContext().getValueStack().getRoot().add(0,department);
 	
 //	//将对象放入map中 这样页面要通过 value="%{ognl表达式}" 来回显
-//	ActionContext.getContext().put("department", department);
+	ActionContext.getContext().put("department", department);
 	return updateUI;
 }
 public String add(){
@@ -136,13 +135,13 @@ public String add(){
 	Department department=new Department();
 	BeanUtils.copyProperties(this.getModel(), department);
 	System.out.println(this.getModel().getDescription());
-	this.departmentService.saveDepartment(department);
+	this.departmentService.saveEntry(department);
 	return action2action;
 }
 public String update(){
 	Department department=new Department();
 	BeanUtils.copyProperties(this.getModel(), department);
-	this.departmentService.updateDepartment(department);
+	this.departmentService.updateEntry(department);
 	return action2action;
 }
 }
