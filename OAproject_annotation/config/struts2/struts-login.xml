@@ -3,12 +3,9 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
 	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-<package name="menuitem" namespace="/" extends="json-default">
-<action name="menuitemAction_*" method="{1}" class="menuitemAction">
-<result type="json">
-
-</result>
+<package name="login" namespace="/" extends="struts-default">
+<action name="loginAction_*" method="{1}" class="loginAction">
+<result name="index" type="">WEB-INF/jsp/frame/index.jsp</result>
 </action>
-</package>  
-
+</package>
 </struts>

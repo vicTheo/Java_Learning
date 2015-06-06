@@ -10,7 +10,10 @@
    </id>
    <property name="icon" type="java.lang.String" length="100"></property>
    <property name="name" type="java.lang.String" length="10"></property>
+   <property name="target" type="java.lang.String" length="10"></property>
+   <property name="url" type="java.lang.String" length="50"></property>
    <property name="isParent" type="java.lang.Boolean" length="10"></property>
+   <property name="checked" type="java.lang.Boolean" length="10"></property>
    <property name="pid" type="java.lang.Long" length="5"></property>
    
    <set name="users" table="user_menuitem">

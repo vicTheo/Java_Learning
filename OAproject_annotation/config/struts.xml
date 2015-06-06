@@ -10,6 +10,9 @@
 <include file="struts2/struts-post.xml"></include>
 <include file="struts2/struts-user.xml"></include>
 <include file="struts2/struts-menuitem.xml"></include>
+<include file="struts2/struts-login.xml"></include>
+<include file="struts2/struts-forward.xml"></include>
+<include file="struts2/struts-kynamic.xml"></include>
 
 <package name="ajax" extends="struts-default">
 <result-types>

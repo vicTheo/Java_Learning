@@ -54,7 +54,10 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 
 	public Collection<T> getAllEntry() {
 		// TODO Auto-generated method stub
+		
 		return  this.hibernateTemplate.find("from "+this.classt.getName());
+		
+		
 	}
 
 }

@@ -3,12 +3,11 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
 	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-<package name="menuitem" namespace="/" extends="json-default">
-<action name="menuitemAction_*" method="{1}" class="menuitemAction">
+<package name="kynamic" namespace="/" extends="json-default">
+<action name="kynamicAction_*" method="{1}" class="kynamicAction">
 <result type="json">
-
+<param name="ignoreHierarchy">false</param>
 </result>
 </action>
-</package>  
-
+</package>
 </struts>

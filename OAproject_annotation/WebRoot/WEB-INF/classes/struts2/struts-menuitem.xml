@@ -5,7 +5,9 @@
 <struts>
 <package name="menuitem" namespace="/" extends="json-default">
 <action name="menuitemAction_*" method="{1}" class="menuitemAction">
-<result type="json"></result>
+<result type="json">
+
+</result>
 </action>
 </package>  
 
