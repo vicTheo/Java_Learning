@@ -3,6 +3,8 @@ package OAproject.Domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.apache.struts2.json.annotations.JSON;
+
 public class Version implements Serializable{
 private String title;
 private String content;
@@ -41,6 +43,7 @@ public Long getVersion() {
 public void setVersion(Long version) {
 	this.version = version;
 }
+@JSON(serialize=false)
 public Kynamic getKynamic() {
 	return kynamic;
 }

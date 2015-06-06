@@ -12,7 +12,7 @@
 	<property name="version" type="java.lang.Long" length="10"></property>
 	<property name="updateTime" type="java.util.Date"></property>
 	
-	<many-to-one name="kynamic" class="OAproject.Domain.Kynamic"></many-to-one>
+	<many-to-one name="kynamic" class="OAproject.Domain.Kynamic" column="kid"></many-to-one>
 	
 	</class>
 </hibernate-mapping>
