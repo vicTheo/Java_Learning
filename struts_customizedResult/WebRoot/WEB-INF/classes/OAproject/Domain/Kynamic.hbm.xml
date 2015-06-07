@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="OAproject.Domain.Kynamic" table="kynamic">
+	<id name="kid" type="java.lang.Long"  length="5">
+	<column name="kid"></column>
+	<generator class="increment"></generator>
+	</id>
+	<property name="name" type="java.lang.String" length="20"></property>
+	<property name="pid" type="java.lang.Long" length="10"></property>
+	<property name="isParent" type="java.lang.Boolean" length="10"></property>
+	
+	<set name="versions">
+	<key column="kid"></key>
+	<one-to-many class="OAproject.Domain.Version"/>
+	</set>
+	</class>
+</hibernate-mapping>

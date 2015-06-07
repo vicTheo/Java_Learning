@@ -1,0 +1,209 @@
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.0-b70 mixed mode):
+
+"DestroyJavaVM" #12 prio=5 os_prio=0 tid=0x0000000001d6d800 nid=0x2100 waiting o
+n condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-1" #11 prio=5 os_prio=0 tid=0x0000000006f22800 nid=0x20fc waiting for mo
+nitor entry [0x0000000007daf000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at ThreadB.run(ThreadB.java:18)
+        - waiting to lock <0x00000000ec658d80> (a java.lang.Object)
+        - locked <0x00000000ec658d90> (a java.lang.Object)
+
+"Thread-0" #10 prio=5 os_prio=0 tid=0x0000000006f22000 nid=0x220c waiting for mo
+nitor entry [0x0000000007ebf000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at ThreadA.run(ThreadA.java:18)
+        - waiting to lock <0x00000000ec658d90> (a java.lang.Object)
+        - locked <0x00000000ec658d80> (a java.lang.Object)
+
+"Service Thread" #9 daemon prio=9 os_prio=0 tid=0x0000000006efb800 nid=0x1718 ru
+nnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C1 CompilerThread2" #8 daemon prio=9 os_prio=2 tid=0x0000000006e8f000 nid=0x105
+c waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread1" #7 daemon prio=9 os_prio=2 tid=0x0000000006e8e000 nid=0x23c
+c waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" #6 daemon prio=9 os_prio=2 tid=0x0000000005b5c800 nid=0x23d
+8 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Attach Listener" #5 daemon prio=5 os_prio=2 tid=0x0000000005b5b000 nid=0x1120 r
+unnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=2 tid=0x0000000006e8b000 nid=0x2284
+ waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Finalizer" #3 daemon prio=8 os_prio=1 tid=0x0000000005af6800 nid=0x20d4 in Obje
+ct.wait() [0x0000000006e6f000]
+   java.lang.Thread.State: WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000ec6b4848> (a java.lang.ref.ReferenceQueue$Lock)
+        at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+        - locked <0x00000000ec6b4848> (a java.lang.ref.ReferenceQueue$Lock)
+        at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+        at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+"Reference Handler" #2 daemon prio=10 os_prio=2 tid=0x0000000005aed800 nid=0x1cb
+4 in Object.wait() [0x0000000006caf000]
+   java.lang.Thread.State: WAITING (on object monitor)
+        at java.lang.Object.wait(Native Method)
+        - waiting on <0x00000000ec6806b8> (a java.lang.ref.Reference$Lock)
+        at java.lang.Object.wait(Unknown Source)
+        at java.lang.ref.Reference$ReferenceHandler.run(Unknown Source)
+        - locked <0x00000000ec6806b8> (a java.lang.ref.Reference$Lock)
+
+"VM Thread" os_prio=2 tid=0x0000000005aea000 nid=0x2210 runnable
+
+"GC task thread#0 (ParallelGC)" os_prio=0 tid=0x00000000020ab000 nid=0xe38 runna
+ble
+
+"GC task thread#1 (ParallelGC)" os_prio=0 tid=0x00000000020ad800 nid=0x20d8 runn
+able
+
+"GC task thread#2 (ParallelGC)" os_prio=0 tid=0x00000000020af000 nid=0x209c runn
+able
+
+"GC task thread#3 (ParallelGC)" os_prio=0 tid=0x00000000020b1000 nid=0x230c runn
+able
+
+"VM Periodic Task Thread" os_prio=2 tid=0x0000000006f18800 nid=0x10d8 waiting on
+ condition
+
+JNI global references: 7
+
+
+Found one Java-level deadlock:
+=============================
+"Thread-1":
+  waiting to lock monitor 0x0000000005af1818 (object 0x00000000ec658d80, a java.
+lang.Object),
+  which is held by "Thread-0"
+"Thread-0":
+  waiting to lock monitor 0x0000000005af4368 (object 0x00000000ec658d90, a java.
+lang.Object),
+  which is held by "Thread-1"
+
+Java stack information for the threads listed above:
+===================================================
+"Thread-1":
+        at ThreadB.run(ThreadB.java:18)
+        - waiting to lock <0x00000000ec658d80> (a java.lang.Object)
+        - locked <0x00000000ec658d90> (a java.lang.Object)
+"Thread-0":
+        at ThreadA.run(ThreadA.java:18)
+        - waiting to lock <0x00000000ec658d90> (a java.lang.Object)
+        - locked <0x00000000ec658d80> (a java.lang.Object)
+
+Found 1 deadlock.
+
+Heap
+ PSYoungGen      total 1024K, used 854K [0x00000000ec600000, 0x00000000ec800000,
+ 0x0000000100000000)
+  eden space 512K, 74% used [0x00000000ec600000,0x00000000ec65f840,0x00000000ec6
+80000)
+  from space 512K, 92% used [0x00000000ec680000,0x00000000ec6f6010,0x00000000ec7
+00000)
+  to   space 512K, 0% used [0x00000000ec780000,0x00000000ec780000,0x00000000ec80
+0000)
+ ParOldGen       total 59904K, used 56K [0x00000000c5200000, 0x00000000c8c80000,
+ 0x00000000ec600000)
+  object space 59904K, 0% used [0x00000000c5200000,0x00000000c520e010,0x00000000
+c8c80000)
+ Metaspace       used 2457K, capacity 4490K, committed 4864K, reserved 1056768K
+  class space    used 273K, capacity 386K, committed 512K, reserved 1048576K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
