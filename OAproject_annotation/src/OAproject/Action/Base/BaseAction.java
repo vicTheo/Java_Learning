@@ -14,10 +14,11 @@ public class BaseAction<T> implements ModelDriven<T>{
 	}
 
 	public BaseAction(){
-    	ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
-    	this.classt=(Class) type.getActualTypeArguments()[0];
-    	
+    
     	try {
+    		ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
+        	this.classt=(Class) type.getActualTypeArguments()[0];
+        	
 			this.t=(T) this.classt.newInstance();
 		
 		} catch (Exception e) {

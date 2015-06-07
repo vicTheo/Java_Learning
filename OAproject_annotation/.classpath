@@ -5,17 +5,6 @@
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/db/mysql-connector-java-5.1.10-bin.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/hibernate-commons-annotations.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/hibernate3.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/javassist-3.9.0.GA.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/slf4j-api-1.5.8.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/hibernate3.5.6/slf4j-log4j12.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl/jstl.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl/standard.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/junit/junit.jar"/>
@@ -39,6 +28,57 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-json-plugin-2.1.8.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/struts2-junit-plugin-2.1.8.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/activation.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/antlr-runtime.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/antlr.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/avalon-framework.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/bsh.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/cglib.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/commons-logging.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/core.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/dom4j.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/drools-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/drools-compiler.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/drools-core.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/errai-bus.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/errai-common.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/freemarker.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/gson.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/guice-aopalliance.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/guice-servlet.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/guice.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/gwt-console-rpc.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/gwt-console-server-integration.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/hibernate-core.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/hsqldb.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/janino.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/javassist.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-bpmn.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-console-form-plugin.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-console-graphView-plugin.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-console-integration.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-console-reports.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-db.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm-jboss.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jbpm.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/joda-time.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/jta.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/livetribe-jsr223.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/log4j.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/logkit.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/mail.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/mockejb.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/mockrunner.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/mvel2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/mysql-connector-java.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/oro.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/postgresql.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/slf4j-jdk14.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/slf4j-log4j12.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/subethasmtp-smtp.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm/subethasmtp-wiser.jar"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>

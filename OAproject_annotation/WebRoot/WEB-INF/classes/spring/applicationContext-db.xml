@@ -16,7 +16,7 @@
        
        
         <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-       <property name="configLocation" value="classpath:hibernate/hibernate.cfg.xml"></property>
+       <property name="configLocation" value="classpath:jbpm/jbpm.hibernate.cfg.xml"></property>
        </bean>
       
         <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
@@ -28,7 +28,9 @@
        </property>
        </bean>  
         <tx:annotation-driven transaction-manager="transactionManager"/>
-       
-     
-      
+          
+     <bean id="springHelper" class="org.jbpm.pvm.internal.processengine.SpringHelper">
+     <property name="jbpmCfg" value="jbpm/jbpm.cfg.xml"></property>
+     </bean>
+      <bean id="processEngine" factory-bean="springHelper" factory-method="createProcessEngine"></bean>
 </beans>

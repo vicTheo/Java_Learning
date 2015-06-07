@@ -14,6 +14,7 @@
 <include file="struts2/struts-forward.xml"></include>
 <include file="struts2/struts-kynamic.xml"></include>
 <include file="struts2/struts-version.xml"></include>
+<include file="struts2/struts-pdmanager.xml"></include>
 
 <package name="ajax" extends="struts-default">
 <result-types>
