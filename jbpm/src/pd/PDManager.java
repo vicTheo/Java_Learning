@@ -17,14 +17,14 @@ import org.jbpm.pvm.internal.processengine.ProcessEngineImpl;
 
 import org.junit.Test;
 
-import utils.BaseJpbm;
+import utils.BaseJbpm;
 
 /**
  * 流程定义管理 * 流程定义 * 把流程定义文档部署到jbpm中 * 查询 * 查询流程部署 * 查询所有的流程部署 * 根据部署ID查询流程部署 *
  * 查询流程定义 * 查询所有的流程定义 * 根据deploymentID查询流程定义 * 根据pdid查询流程定义 * 根据pdkey查询流程定义 * 删除
  * * 查看流程图
  */
-public class PDManager extends BaseJpbm {
+public class PDManager extends BaseJbpm {
 	/**
 	 * 涉及到的表 * JBPM4_DEPLOYMENT * 部署表，用来描述一次部署 * 字段说明 DBID_： 主键、部署ID STATE: 状态
 	 * active * JBPM4_LOB * 仓库表 存放了流程定义文档(xml,png) * 字段说明 DEPLOYMENT_:部署ID 外键

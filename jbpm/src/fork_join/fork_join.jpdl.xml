@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="fork_join" xmlns="http://jbpm.org/4.4/jpdl">
+   <start name="start1" g="220,39,48,48">
+      <transition name="to fork1" to="fork1" g="-52,-22"/>
+   </start>
+   <task name="task1" g="92,139,92,52" assignee="张三">
+      <transition name="to task3" to="task3" g="-52,-22"/>
+   </task>
+   <task name="task2" g="297,140,92,52" assignee="李四">
+      <transition name="to task4" to="task4" g="-52,-22"/>
+   </task>
+   <task name="task3" g="89,214,92,52" assignee="李四">
+      <transition name="to join1" to="join1" g="-49,-22"/>
+   </task>
+   <task name="task4" g="319,220,92,52" assignee="张三">
+      <transition name="to join1" to="join1" g="-49,-22"/>
+   </task>
+   <fork name="fork1" g="219,113,48,48">
+      <transition name="to task1" to="task1" g="-52,-22"/>
+      <transition name="to task2" to="task2" g="-52,-22"/>
+   </fork>
+   <join name="join1" g="229,276,48,48">
+      <transition name="to end1" to="end1" g="-50,-22"/>
+   </join>
+   <end name="end1" g="217,352,48,48"/>
+</process>
