@@ -5,6 +5,7 @@
 	<class name="OAproject.Domain.Approval" table="approval">
 	<id name="aid" type="java.lang.Long">
 	<column name="aid"></column>
+	<generator class="increment"></generator>
 	</id>
 	<property name="approvename" type="java.lang.String" length="10"></property>
 	<property name="comment" type="java.lang.String" length="100"></property>

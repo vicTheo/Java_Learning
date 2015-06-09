@@ -1,4 +1,4 @@
-#Fri Jun 05 22:43:51 CST 2015
+#Mon Jun 08 20:23:09 CST 2015
 eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/jsp/user/add.jsp=UTF-8
 encoding//WebRoot/WEB-INF/jsp/user/list.jsp=UTF-8
@@ -7,4 +7,5 @@ encoding//WebRoot/js/privilege.js=UTF-8
 encoding//WebRoot/js/user_add.js=UTF-8
 encoding//src/OAproject/Action/UserAction.java=UTF-8
 encoding//src/OAproject/Action/result/AjaxValidation.java=UTF-8
+encoding//src/OAproject/util/UploadUtils.java=UTF-8
 encoding//test/menuitem/MenuitemTest.java=UTF-8

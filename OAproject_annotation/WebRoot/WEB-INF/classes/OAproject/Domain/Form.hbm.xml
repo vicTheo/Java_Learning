@@ -5,11 +5,13 @@
 	<class name="OAproject.Domain.Form" table="form">
      <id name="fid" type="java.lang.Long" length="5">
      <column name="fid"></column>
+     <generator class="increment"></generator>
      </id>
      <property name="applicateTime" type="java.util.Date"></property>
      <property name="applicator" type="java.lang.String" length="10"></property>
      <property name="state" type="java.lang.String" length="10"></property>
      <property name="title" type="java.lang.String" length="10"></property>
+     <property name="url" type="java.lang.String" length="200"></property>
      
      <set name="approvals" inverse="true">
      <key><column name="fid"></column></key>

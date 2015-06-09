@@ -2,15 +2,8 @@
 <%@ include file="/WEB-INF/jsp/common/common.jsp"%>
 <html>
 <head>
-    <title>审批流程列表</title>
+    <title>表单模板列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="text/javascript">
-	     function showProcessImage( deploymentId ){
-            var url ="pdmanagerAction_showProcessImage.action?did="+deploymentId;
-            
-            window.open(url,300,300);
-        }
-    </script> 
 </head>
 <body>
 
@@ -18,7 +11,7 @@
     <div id="Title_bar_Head">
         <div id="Title_Head"></div>
         <div id="Title"><!--页面标题-->
-            <img border="0" width="13" height="13" src="${pageContext.request.contextPath}/css/images/title_arrow.gif"/> 审批流程管理
+            <img border="0" width="13" height="13" src="${pageContext.request.contextPath}/css/images/title_arrow.gif"/> 模板管理
         </div>
         <div id="Title_End"></div>
     </div>
@@ -30,20 +23,21 @@
         <!-- 表头-->
         <thead>
             <tr align=center valign=middle id=TableTitle>
-            	<td width="200px">流程名称</td>
-				<td width="80px">最新版本</td>
+            	<td width="250px">模板名称</td>
+				<td width="250px">所用流程</td>
                 <td>相关操作</td>
             </tr>
         </thead>
 
 		<!--显示数据列表-->
-        <tbody id="TableData" class="dataContainer" datakey="processDefList">
-        	<s:iterator value="#pdList">
+        <tbody id="TableData" class="dataContainer" datakey="documentTemplateList">
+        	<s:iterator value="#ftList">
 				<tr class="TableDetail1 template">
 						<td><s:property value="name"/></td>
-						<td align="CENTER"><s:property value="version"/></td>
-						<td><s:a action="pdmanagerAction_delete.action?key=%{pdkey}">删除</s:a>
-							<a href="javascript:showProcessImage('${deploymentId}')">查看流程图</a>
+						<td><s:property value="processkey"/></td>
+						<td><a onClick="" href="#">删除</a>
+							<a href="saveUI.html">修改</a>
+							<s:a action="formTemplateAction_download?ftid=%{ftid}">下载</s:a>
 						</td>
 				</tr>
 			</s:iterator>
@@ -53,18 +47,9 @@
     <!-- 其他功能超链接 -->
     <div id="TableTail">
         <div id="TableTail_inside">
-            <table border="0" cellspacing="0" cellpadding="10" align="left">
-                <tr>
-			        <td><div class="FuncBtn">
-                            <div class=FuncBtnHead></div>
-                            <div class=FuncBtnMemo><s:a action="pdmanagerAction_deployUI.action">部署流程定义文档</s:a></div>
-                            <div class=FuncBtnTail></div>
-                        </div></td>
-                </tr>
-			</table>
+			<a href="formTemplateAction_addUI.action"><img src="${pageContext.request.contextPath}/css/blue/images/button/addNew.PNG" /></a>
         </div>
     </div>
 </div>
-
 </body>
 </html>

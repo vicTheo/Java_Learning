@@ -15,6 +15,8 @@
 <include file="struts2/struts-kynamic.xml"></include>
 <include file="struts2/struts-version.xml"></include>
 <include file="struts2/struts-pdmanager.xml"></include>
+<include file="struts2/struts-formtemplate.xml"></include>
+<include file="struts2/struts-workflow.xml"></include>
 
 <package name="ajax" extends="struts-default">
 <result-types>

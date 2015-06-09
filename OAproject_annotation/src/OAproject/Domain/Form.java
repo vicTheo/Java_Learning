@@ -11,6 +11,14 @@ public class Form {
  private String state;
  private Set<Approval> approvals; 
  private FormTemplate formTemplate;
+ private String url;
+ 
+public String getUrl() {
+	return url;
+}
+public void setUrl(String url) {
+	this.url = url;
+}
 public Long getFid() {
 	return fid;
 }

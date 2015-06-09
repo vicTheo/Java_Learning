@@ -5,7 +5,7 @@
 <struts>
 <package name="pdmanager" namespace="/" extends="struts-default">
 <action name="pdmanagerAction_*" method="{1}" class="pdmanagerAction">
-<result name="listAction">WEB-INF/jsp/workflow/formTemplateList.jsp</result>
+<result name="listAction">WEB-INF/jsp/workflow/pdList.jsp</result>
 <result name="deployUI">WEB-INF/jsp/workflow/deployUI.jsp</result>
 <result name="action2action" type="redirectAction">pdmanagerAction_getLastVersion.action</result>
 <result type="stream"></result>

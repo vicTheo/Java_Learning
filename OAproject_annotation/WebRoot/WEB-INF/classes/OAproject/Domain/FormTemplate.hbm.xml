@@ -5,10 +5,11 @@
 <class name="OAproject.Domain.FormTemplate" table="formtemplate">
 <id name="ftid" type="java.lang.Long" length="5">
 <column name="ftid"></column>
+<generator class="increment"></generator>
 </id>
 <property name="name" type="java.lang.String" length="10"></property>
 <property name="processkey" type="java.lang.String" length="10"></property>
-<property name="url" type="java.lang.String" length="20"></property>
+<property name="url" type="java.lang.String" length="200"></property>
 <set name="forms" inverse="true">
 <key><column name="ftid"></column></key>
 <one-to-many class="OAproject.Domain.Form"/>
