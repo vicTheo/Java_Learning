@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="CAS_news"
+  id="myeclipse.1434013413358"
+  context-root="/CAS_news"
+  j2ee-spec="5.0"
+  archive="CAS_news.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
