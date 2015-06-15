@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+<!-- 简单主题 -->
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <!-- 开发模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+    
+	<package name="surveyParkPkg" namespace="/" extends="struts-default,jfreechart-default">
+	
+		 <interceptors>
+		  <!-- 注册自定义登录拦截器 -->
+		 <interceptor name="loginInterceptor" class="surveypark.action.interceptor.LoginInterceptor"></interceptor>
+		 <!-- 自定义拦截器栈 -->
+		 <interceptor-stack name="surveyStack">
+		 <interceptor-ref name="loginInterceptor"></interceptor-ref>
+		 <interceptor-ref name="defaultStack">
+		 <param name="modelDriven.refreshModelBeforeResult">true</param>
+		 </interceptor-ref>
+		 </interceptor-stack>
+		 </interceptors>
+		 <!-- 定义默认拦截器栈 -->
+		 <default-interceptor-ref name="surveyStack"></default-interceptor-ref>
+		 
+		 	<!-- 定义全局结果 -->
+		<global-results>
+		<result name="login">index.jsp</result>
+		 <result name="designSurveyAction" type="redirectAction">
+		   <param name="namespace">/</param>
+		   <param name="actionName" >SurveyAction_designSurvey</param>
+		   <param name="sid" >${sid}</param>
+		   </result>
+		</global-results>
+		 
+		 <action name="RegAction_*" method="{1}" class="regAction">
+		 <result name="regPage">reg.jsp</result>
+		 <result name="success">index.jsp</result>
+		 <result name="input">reg.jsp</result>
+		 </action>
+		 
+		 <action name="LoginAction_*" method="{1}" class="loginAction">
+		   <result name="loginPage">index.jsp</result>
+		   <result name="success">index.jsp</result>
+		   <result name="input">index.jsp</result>
+		 </action>
+		 
+		 <action name="SurveyAction_*" method="{1}" class="surveyAction">
+		   <result name="designSurveyPage">designSurvey.jsp</result>
+		   <result name="mySurveyList">mySurveyList.jsp</result>
+		   <result name="editSurvey">editSurvey.jsp</result>
+		   <result name="getMySurveysAction" type="redirectAction">SurveyAction_getMySurveys</result>
+		    <result name="toAddLogoPage">addLogo.jsp</result>
+		   <result name="input">${inputPage}</result>
+		   <result name="analyzeSurveyList">analyzeSurveyList.jsp</result>
+		    <interceptor-ref name="surveyStack">
+		    	<!-- 文件大小 -->
+				<param name="fileUpload.maximumSize">60000</param>
+				<param name="fileUpload.allowedExtensions">.jpg,.jpeg,.png,.gif,.bmp</param>
+				<param name="fileUpload.allowedTypes">image/jpg,image/jpeg,image/pjpeg,image/bmp,image/gif,image/png</param>
+				<param name="fileUpload.useActionMessageBundle">true</param>
+		    </interceptor-ref>
+		      
+		 </action>
+		 
+		  <action name="PageAction_*" method="{1}" class="pageAction">
+		   <result name="addPagePage">editPage.jsp</result>
+		   <result name="editPage">editPage.jsp</result>
+		   </action>
+		   
+		  <action name="QuestionAction_*" method="{1}" class="questionAction">
+		   <result name="toSelectQuestionTypePage">selectQuestionType.jsp</result>
+		   	<!-- 根据题型动态返回设计问题页面 -->
+			<result name="0">/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="1">/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="2">/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="3">/nonMatrixWithOtherQuestionDesign.jsp</result>
+		
+			<result name="4">/nonMatrixSelectQuestionDesign.jsp</result>
+			<result name="5">/nonMatrixTextQuestionDesign.jsp</result>
+		
+			<result name="6">/matrixNormalQuestionDesign.jsp</result>
+			<result name="7">/matrixNormalQuestionDesign.jsp</result>
+			<result name="8">/matrixSelectQuestionDesign.jsp</result>
+		   </action>
+		   
+		     <action name="MoveOrCopyPageAction_*" method="{1}" class="moveOrCopyPageAction">
+		     <result name="toMoveOrCopyPage">moveOrCopyPageList.jsp</result>
+		     </action>
+		   
+		     <action name="EngageSurveyAction_*" method="{1}" class="engageSurveyAction">
+		     <result name="engageSurveyList">engageSurveyList.jsp</result>
+		     <result name="engageSurvey">engageSurvey.jsp</result>
+		     <result name="engageSurveyListAction" type="redirectAction">
+		     <param name="namespace">/</param>
+		     <param name="actionName">EngageSurveyAction_toEngageSurveyList</param>
+		     </result>
+		     </action>
+		     
+		     <action name="ChartOutputAction_*" method="{1}" class="chartOutputAction">
+		    <!--  <result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">1024</param>
+			</result> -->
+			<result name="success" type="chart">
+				<param name="height">500</param>
+    			<param name="width">800</param>
+			</result>
+		     </action>
+	</package>
+</struts>
