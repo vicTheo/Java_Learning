@@ -8,6 +8,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Set;
+
+import surveypark.domain.BaseEntity;
+import surveypark.domain.security.Right;
 
 public class DataUtil {
  public static String md5(String str){
@@ -52,4 +56,15 @@ public class DataUtil {
 	}
 	return null;
  }
+
+public static String extractEntitiesIds(Set<? extends BaseEntity> entitys) {
+	if(!ValidateUtil.isValid(entitys)){
+		String temp="";
+		for(BaseEntity e:entitys){
+			temp=temp+e.getId()+",";
+		}
+		return temp.substring(0,temp.length()-1);
+	}
+	return null;
+}
 }

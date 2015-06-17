@@ -23,7 +23,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 	public QuestionStatisticsModel statistics(Integer qid) {
 		Question q=questionDao.getEntity(qid);
 		QuestionStatisticsModel qsm=new QuestionStatisticsModel();
-		String hql="select count(*) from Question q where q.id=?";
+		String hql="select count(*) from Answer a where a.questionId=?";
 	    int count=((Long)questionDao.uniqueResult(hql, qid)).intValue();
 	    qsm.setCount(count);//回答该问题的人数
 	    qsm.setQuestion(q);

@@ -12,10 +12,12 @@
 	
 		 <interceptors>
 		  <!-- 注册自定义登录拦截器 -->
-		 <interceptor name="loginInterceptor" class="surveypark.action.interceptor.LoginInterceptor"></interceptor>
+		  <interceptor name="catchRightUrlInterceptor" class="surveypark.action.interceptor.CatchRightUrlInterceptor"></interceptor>
+		 <interceptor name="rightFilterInterceptor" class="surveypark.action.interceptor.RightFilterInterceptor"></interceptor>
 		 <!-- 自定义拦截器栈 -->
 		 <interceptor-stack name="surveyStack">
-		 <interceptor-ref name="loginInterceptor"></interceptor-ref>
+		 <interceptor-ref name="rightFilterInterceptor"></interceptor-ref>
+		 <interceptor-ref name="catchRightUrlInterceptor"></interceptor-ref>
 		 <interceptor-ref name="defaultStack">
 		 <param name="modelDriven.refreshModelBeforeResult">true</param>
 		 </interceptor-ref>
@@ -27,6 +29,7 @@
 		 	<!-- 定义全局结果 -->
 		<global-results>
 		<result name="login">index.jsp</result>
+		<result name="no_right_error">index.jsp</result>
 		 <result name="designSurveyAction" type="redirectAction">
 		   <param name="namespace">/</param>
 		   <param name="actionName" >SurveyAction_designSurvey</param>
@@ -109,5 +112,47 @@
     			<param name="width">800</param>
 			</result>
 		     </action>
+		     
+		      <action name="CollectSurveyAction_*" method="{1}" class="collectSurveyAction">
+		       <result name="success" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">1024</param>
+			</result> 
+		      </action>
+		       <action name="MartrixStatisticsAction_*" method="{1}" class="martrixStatisticsAction">
+		          <result name="6">matrixNormalStatistics.jsp</result>
+		          <result name="7">matrixNormalStatistics.jsp</result>
+		          <result name="8">matrixSelectStatistics.jsp</result>
+		       </action>
+		       
+		         <action name="RightAction_*" method="{1}" class="rightAction">
+		           <result name="toRightListPage">rightList.jsp</result>
+		           <result name="toAddRightPage">editRight.jsp</result>
+		           <result name="editRight">editRight.jsp</result>
+		           <result name="toRightListPageAction" type="redirectAction">
+		             <param name="namespace">/</param>
+		             <param name="actionName">RightAction_toRightListPage</param>
+		           </result>
+		         </action>
+		         
+		         <action name="RoleAction_*" method="{1}" class="roleAction">
+			          <result name="roleListPage">roleList.jsp</result>
+			          <result name="toAddRolePage">editRole.jsp</result>
+			          <result name="editRolePage">editRole.jsp</result>
+			           <result name="roleListPageAction" type="redirectAction">
+			             <param name="namespace">/</param>
+			             <param name="actionName">RoleAction_getRoleList</param>
+			           </result>
+		         </action>
+		         
+		         <action name="UserAuthorizeAction_*" method="{1}" class="userAuthorizeAction"> 
+		            <result name="toUserAuthorizeList">userAuthorizeList.jsp</result>
+		            <result name="userAuthorizePage">userAuthorize.jsp</result>
+		             <result name="toUserAuthorizeListAction" type="redirectAction">
+			             <param name="namespace">/</param>
+			             <param name="actionName">UserAuthorizeAction_toUserAuthorizeList</param>
+			           </result>
+		         </action>
 	</package>
 </struts>

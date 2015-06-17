@@ -1,5 +1,8 @@
 package surveypark.action.interceptor;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
@@ -9,11 +12,14 @@ import surveypark.action.LoginAction;
 import surveypark.action.RegAction;
 import surveypark.action.UserAware;
 import surveypark.domain.User;
+import surveypark.domain.security.Right;
+import surveypark.utils.ValidateUtil;
 
 import com.opensymphony.xwork2.ActionInvocation;
+import com.opensymphony.xwork2.ActionProxy;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
-public class LoginInterceptor implements Interceptor {
+public class RightFilterInterceptor implements Interceptor {
 
 	/**
 	 * 
@@ -29,24 +35,17 @@ public class LoginInterceptor implements Interceptor {
 		// TODO Auto-generated method stub
 
 	}
-    
+    //权限表过滤器
 	public String intercept(ActionInvocation invocation) throws Exception {
-	    BaseAction action=(BaseAction) invocation.getAction();
-	    if(action instanceof LoginAction||action instanceof RegAction){
+		BaseAction action=(BaseAction) invocation.getAction();
+	    ActionProxy ap=invocation.getProxy();
+	    String namespace=ap.getNamespace();
+	    String actionName=ap.getActionName();
+	    HttpServletRequest request=ServletActionContext.getRequest();
+	    if(ValidateUtil.hasRight(namespace, actionName, request, action)){
 	    	return invocation.invoke();
 	    }else{
-	    	//登录判断
-	    	HttpSession session=ServletActionContext.getRequest().getSession();
-	    	User user=(User) session.getAttribute("user");
-	    	if(user==null){
-	    		return "login";
-	    	}else{
-	    		//处理action的user注入问题
-	    		if(action instanceof UserAware){
-	    			((UserAware)action).setUser(user);
-	    		}
-	    		return invocation.invoke();
-	    	}
+	    	return "no_right_error";
 	    }
 	}
 

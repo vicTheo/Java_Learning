@@ -13,7 +13,7 @@
 						http://www.springframework.org/schema/aop 
 						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 	<!-- 组件扫描 -->
-	<context:component-scan base-package="surveypark.action,surveypark.dao.impl,surveypark.service.impl"></context:component-scan>
+	<context:component-scan base-package="surveypark.action,surveypark.action.listener,surveypark.dao.impl,surveypark.service.impl"></context:component-scan>
 	<!-- 分散配置 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<!-- 配置数据源 -->
@@ -62,8 +62,25 @@
 	<tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" />
 	</tx:attributes>
 	</tx:advice>
-	<!-- aop事务配置 -->
+	
+	<bean id="logger" class="surveypark.advice.Logger">
+		<property name="logService" ref="logService"></property>
+	</bean>
 	<aop:config>
-	<aop:advisor advice-ref="tx" pointcut="execution(* *..*Service.*(..))"/>
+	<!-- 事务切入点 -->
+	<aop:pointcut expression="execution(* *..*Service.*(..))" id="txPointcut"/>
+	<!-- 日志切入点 -->
+	<aop:pointcut expression="(execution(* *..*Service.save*(..))
+									or execution(* *..*Service.update*(..))
+									or execution(* *..*Service.delete*(..))
+									or execution(* *..*Service.batch*(..))
+									or execution(* *..*Service.new*(..))) and !bean(logService)" 
+							id="logPointcut"/>
+	<!-- aop事务配置 -->
+	<aop:advisor advice-ref="tx" pointcut-ref="txPointcut"/>
+	<!-- 日志切面 -->
+	<aop:aspect ref="logger">
+	   <aop:around method="record" pointcut-ref="logPointcut"/>
+	</aop:aspect>
 	</aop:config>
 	</beans>

@@ -2,7 +2,6 @@ package surveypark.domain;
 
 
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +9,8 @@ import java.util.Set;
 /**
  * Survey
  */
-public class Survey implements Serializable{
+public class Survey extends BaseEntity{
+	private static final long serialVersionUID = 2386996558507409430L;
 	private Integer id;
 	private String title = "未命名";
 	private String preText = "上一步";

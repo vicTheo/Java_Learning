@@ -256,4 +256,16 @@ public class SurveyServiceImpl implements SurveyService {
 		}
 	
 	}
+
+	public List<Question> getAllQuestions(Integer sid) {
+		String hql="from Question q where q.page.survey.id=?";
+		
+		return questionDao.findEntityByHql(hql, sid);
+	}
+
+	public List<Answer> getAllAnswers(Integer sid) {
+		String hql="from Answer a where a.surveyId=?";
+		
+		return answerDao.findEntityByHql(hql, sid);
+	}
 }

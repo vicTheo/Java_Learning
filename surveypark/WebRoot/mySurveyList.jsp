@@ -51,7 +51,7 @@
 						<s:else>打开</s:else>
 						</td>
 						<td><s:a action="SurveyAction_designSurvey?sid=%{id}" cssClass="aList">设计</s:a></td>
-						<td><s:a>收集信息</s:a></td>
+						<td><s:a action="CollectSurveyAction?sid=%{id}" cssClass="aList">收集信息</s:a></td>
 						<td><s:a action="SurveyAction_analyzeSurvey?sid=%{id}" cssClass="aList">分析</s:a></td>
 						<td><s:a action="SurveyAction_toogleStatus?sid=%{id}" cssClass="aList">打开/关闭</s:a></td>
 						<td><s:a action="SurveyAction_clearAnswers?sid=%{id}" cssClass="aList">清除调查</s:a></td>

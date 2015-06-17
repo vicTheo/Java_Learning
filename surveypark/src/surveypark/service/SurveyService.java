@@ -44,4 +44,6 @@ public Page  getFirstPage(Integer id);
 public Page getNextPage(Integer currPid);
 public Page getPrePage(Integer currPid);
 public void saveAnswer(List<Answer> answers);
+public List<Question> getAllQuestions(Integer sid);
+public List<Answer> getAllAnswers(Integer sid);
 }

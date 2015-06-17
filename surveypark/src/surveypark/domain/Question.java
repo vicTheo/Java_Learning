@@ -1,14 +1,12 @@
 package surveypark.domain;
 
-import java.io.Serializable;
-
 import surveypark.utils.StringUtil;
 
 
 /**
  * 问题实体
  */
-public class Question implements Serializable{
+public class Question extends BaseEntity{
 	
 	private static final long serialVersionUID = 3929034623950694227L;
 	private final String RN="\r\n";

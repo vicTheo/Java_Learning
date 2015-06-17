@@ -20,10 +20,10 @@ public static boolean contains(String[] values, String value) {
 	return false;
 }
 
-public static String arr2string(String[] value) {
+public static String arr2string(Object[] value) {
    String temp="";
    if(ValidateUtil.isValid(value)){
-	for(String str:value){
+	for(Object str:value){
 	   temp+=str+",";
    }
 	return temp.substring(0,temp.length()-1);

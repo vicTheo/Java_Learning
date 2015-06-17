@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Page
  */
-public class Page implements Serializable{
+public class Page extends BaseEntity{
 	
 	private static final long serialVersionUID = 7911181574896207307L;
 	private Integer id;

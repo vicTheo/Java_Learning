@@ -1,5 +1,6 @@
 package surveypark.service.impl;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,12 +11,16 @@ import surveypark.service.BaseService;
 public class BaseServiceImpl<T> implements BaseService<T> {
     
 	public BaseDao dao;
-	
+	private Class classt;
+	public BaseServiceImpl(){
+		ParameterizedType type=(ParameterizedType) this.getClass().getGenericSuperclass();
+	    this.classt=(Class) type.getActualTypeArguments()[0];
+	}
 	public BaseDao getDao() {
 		return dao;
 	}
 	@Resource
-	public void setDao(BaseDao dao) {
+	public void setDao(BaseDao<T> dao) {
 		this.dao = dao;
 	}
 
@@ -50,5 +55,14 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findEntityByHql(String hql, Object... objects) {
 		return this.dao.findEntityByHql(hql, objects);
 	}
-
+	public List<T> getAllEntities() {
+		 String hql="from "+classt.getSimpleName();
+		 
+		return this.dao.findEntityByHql(hql);
+	}
+    
+     //单值检索
+	public Object uniqueResult(String hql,Object...objects){
+		return dao.uniqueResult(hql, objects);
+	}
 }
