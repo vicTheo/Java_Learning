@@ -18,4 +18,9 @@ public interface BaseService<T> {
 	  
 	  //查询所有的实体
 	  public List<T> getAllEntities();
+	  
+	  //操作原生sql
+	  public void executeSql(String sql, Object... objects);
+	  
+	  public List<T> findObjectsBySql(String sql,Object...objects);
 }

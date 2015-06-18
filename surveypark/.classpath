@@ -51,6 +51,11 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/iText-2.1.5.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2-jfreechart-plugin-2.3.1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/com.springsource.org.quartz-1.6.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/backport-util-concurrent.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-modules-cache.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ehcache-1.5.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

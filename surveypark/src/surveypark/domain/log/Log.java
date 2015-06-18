@@ -6,7 +6,7 @@ import java.util.Date;
  * 日志实体
  */
 public class Log{
-private Integer id ;
+private String id ;
 	
 	//操作人 
 	private String operator ;
@@ -26,11 +26,11 @@ private Integer id ;
 	//结果消息
 	private String resultMsg ;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

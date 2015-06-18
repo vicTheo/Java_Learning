@@ -14,7 +14,7 @@
 		<s:a action="UserAuthorizeAction_toUserAuthorizeList">[用户授权管理]</s:a>&nbsp;
 		<s:a action="RoleAction_getRoleList">[角色管理]</s:a>&nbsp;
 		<s:a action="RightAction_toRightListPage.action">[权限管理]</s:a>&nbsp;
-		[日志管理]&nbsp;
+		<s:a action="LogAction_findAllLogs">[日志管理]</s:a>&nbsp;
 	</div>
 </div>
 <div class="divWhiteLine"></div>

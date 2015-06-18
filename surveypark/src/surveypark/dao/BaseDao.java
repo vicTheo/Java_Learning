@@ -16,4 +16,8 @@ public interface BaseDao<T> {
   public T loadEntity(Integer id);
   public List<T> findEntityByHql(String hql,Object...objects);
   public Object uniqueResult(String hql,Object... objects);
+  //操作原生sql
+  public void executeSql(String sql,Object...objects);
+  
+  public List<T> findObjectsBySql(String sql,Object...objects);
 }

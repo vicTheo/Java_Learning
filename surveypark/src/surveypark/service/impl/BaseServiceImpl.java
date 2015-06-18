@@ -65,4 +65,13 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	public Object uniqueResult(String hql,Object...objects){
 		return dao.uniqueResult(hql, objects);
 	}
+	//操作原生sql
+	public void executeSql(String sql, Object... objects) {
+		this.dao.executeSql(sql, objects);
+		
+	}
+	public List<T> findObjectsBySql(String sql, Object... objects) {
+		
+		return this.dao.findObjectsBySql(sql, objects);
+	}
 }

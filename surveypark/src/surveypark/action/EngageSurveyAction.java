@@ -16,6 +16,7 @@ import org.apache.struts2.util.ServletContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import surveypark.datasource.SurveyToken;
 import surveypark.domain.Answer;
 import surveypark.domain.Page;
 import surveypark.domain.Survey;
@@ -58,7 +59,8 @@ public class EngageSurveyAction extends BaseAction<Survey> implements ServletCon
 	public void setSurveys(List<Survey> surveys) {
 		this.surveys = surveys;
 	}
-	@Resource(name="surveyService")
+	//注入spring缓存代理
+	@Resource(name="surveyServiceCacheProxy")
 	private SurveyService surveyService;
 	//接受sc
 	private ServletContext sc;
@@ -109,9 +111,12 @@ public class EngageSurveyAction extends BaseAction<Survey> implements ServletCon
 			this.currPage=surveyService.getPrePage(currPid);
 			return "engageSurvey";
 		}else if(submitName.endsWith("done")){
+			//绑定令牌到当前线程
+			SurveyToken token=new SurveyToken();
+			token.setCurrentSurvey((Survey)sessionMap.get(CURRENT_SURVEY));
+			SurveyToken.bindCurrentToken(token);
 			mergeParamsMapInToSession();
 			surveyService.saveAnswer(processAnswers());
-			
 			return "engageSurveyListAction";
 		}else if(submitName.endsWith("exit")){
 			clearSessionData();

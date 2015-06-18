@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 
 import surveypark.dao.BaseDao;
@@ -64,6 +65,23 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			q.setParameter(i, objects[i]);
 		}
 		return q.uniqueResult();
+	}
+	//操作原生sql
+	public void executeSql(String sql, Object... objects) {
+       Query q=sessionFactory.getCurrentSession().createSQLQuery(sql);
+       for(int i=0;i<objects.length;i++){
+			q.setParameter(i, objects[i]);
+		}
+       q.executeUpdate();
+	}
+	public List<T> findObjectsBySql(String sql, Object... objects) {
+		 SQLQuery q=sessionFactory.getCurrentSession().createSQLQuery(sql);
+	       for(int i=0;i<objects.length;i++){
+				q.setParameter(i, objects[i]);
+			}
+	     //添加实体类,将sql查询的集合中,将对象数组组装成实体对象
+	       q.addEntity(classt);
+		return q.list();
 	}
 
 }

@@ -20,7 +20,7 @@ import org.springframework.web.context.ServletContextAware;
 import surveypark.domain.security.Right;
 import surveypark.service.RightService;
 @Component
-public class InRightsListener implements ApplicationListener,
+public class InitRightsListener implements ApplicationListener,
 		ServletContextAware {
     @Resource(name="rightService")
 	private RightService rightService;

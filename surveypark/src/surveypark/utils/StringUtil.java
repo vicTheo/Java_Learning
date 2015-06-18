@@ -30,4 +30,13 @@ public static String arr2string(Object[] value) {
    }
 	return null;
 }
+/*
+ * 获取字符串签名
+ */
+  public static String getDescString(String str){
+	  if(ValidateUtil.isValid(str)&&str.length()>30){
+		  return str.substring(0,29);
+	  }
+	  return str;
+  }
 }

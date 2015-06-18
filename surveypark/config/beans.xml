@@ -16,8 +16,8 @@
 	<context:component-scan base-package="surveypark.action,surveypark.action.listener,surveypark.dao.impl,surveypark.service.impl"></context:component-scan>
 	<!-- 分散配置 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
-	<!-- 配置数据源 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<!-- 配置数据源  主库-->
+	<bean id="dataSource_main" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 			<property name="driverClass" value="${jdbc.driverclass}" />
 			<property name="jdbcUrl" value="${jdbc.url}" />
 			<property name="user" value="${jdbc.username}" />
@@ -27,11 +27,25 @@
 			<property name="minPoolSize" value="${c3p0.pool.size.min}" />
 			<property name="initialPoolSize" value="${c3p0.pool.size.ini}" />
 			<property name="acquireIncrement" value="${c3p0.pool.size.increment}" />
-	</bean>					
+	</bean>		
+	<!-- 配置数据源  从库-->
+	<bean id="dataSource_1" parent="dataSource_main">
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/surveypark1"/>
+	</bean>		
+	<!-- 数据源路由bean -->		
+	<bean id="dataSource_Router" class="surveypark.datasource.DatasourceRouter">
+		<property name="targetDataSources">
+			<map>
+				<entry key="odd" value-ref="dataSource_main"></entry>
+				<entry key="even" value-ref="dataSource_1"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource_main"></property>
+	</bean>	
 	<!-- 配置本地会话工厂bean，这是spring整合hibernate的核心入口 -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 	<!-- 注入数据源 -->
-	<property name="dataSource" ref="dataSource"></property>
+	<property name="dataSource" ref="dataSource_Router"></property>
 	<!-- 指定hibernate配置文件 -->
 	<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
 	<!-- 指定映射文件目录 -->
@@ -77,9 +91,9 @@
 									or execution(* *..*Service.new*(..))) and !bean(logService)" 
 							id="logPointcut"/>
 	<!-- aop事务配置 -->
-	<aop:advisor advice-ref="tx" pointcut-ref="txPointcut"/>
+	<aop:advisor advice-ref="tx" pointcut-ref="txPointcut" order="1"/>
 	<!-- 日志切面 -->
-	<aop:aspect ref="logger">
+	<aop:aspect ref="logger" order="0">
 	   <aop:around method="record" pointcut-ref="logPointcut"/>
 	</aop:aspect>
 	</aop:config>

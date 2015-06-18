@@ -7,17 +7,18 @@
     <constant name="struts.ui.theme" value="simple"></constant>
     <!-- 开发模式 -->
     <constant name="struts.devMode" value="true"></constant>
-    
+    <!-- 允许ognl静态方法调用 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
 	<package name="surveyParkPkg" namespace="/" extends="struts-default,jfreechart-default">
 	
 		 <interceptors>
 		  <!-- 注册自定义登录拦截器 -->
-		  <interceptor name="catchRightUrlInterceptor" class="surveypark.action.interceptor.CatchRightUrlInterceptor"></interceptor>
+		 <!--  <interceptor name="catchRightUrlInterceptor" class="surveypark.action.interceptor.CatchRightUrlInterceptor"></interceptor> -->
 		 <interceptor name="rightFilterInterceptor" class="surveypark.action.interceptor.RightFilterInterceptor"></interceptor>
 		 <!-- 自定义拦截器栈 -->
 		 <interceptor-stack name="surveyStack">
 		 <interceptor-ref name="rightFilterInterceptor"></interceptor-ref>
-		 <interceptor-ref name="catchRightUrlInterceptor"></interceptor-ref>
+		 <!-- <interceptor-ref name="catchRightUrlInterceptor"></interceptor-ref> -->
 		 <interceptor-ref name="defaultStack">
 		 <param name="modelDriven.refreshModelBeforeResult">true</param>
 		 </interceptor-ref>
@@ -153,6 +154,11 @@
 			             <param name="namespace">/</param>
 			             <param name="actionName">UserAuthorizeAction_toUserAuthorizeList</param>
 			           </result>
+		         </action>
+		         
+		         <action name="LogAction_*" method="{1}" class="logAction">
+		         	<result name="toLogListPage">logList.jsp</result>
+		         
 		         </action>
 	</package>
 </struts>
